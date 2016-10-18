@@ -6,7 +6,7 @@
 
       function (VotingStations, $state, $scope) {
         var vm = this;
-        vm.create = create()
+        vm.create = create;
         vm.data = {}
 
         function create() {
