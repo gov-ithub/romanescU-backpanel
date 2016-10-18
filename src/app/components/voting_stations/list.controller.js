@@ -6,7 +6,7 @@
     .controller('votingStationsListController', ["VotingStations", "$state", "$scope",
       function (VotingStations, $state, $scope) {
         var vm = this;
-        vm.delete = delete;
+        vm.delete = remove;
 
         // vm.items = VotingStations.query();
 
@@ -23,7 +23,7 @@
 
 
 
-        function delete() {
+        function remove() {
 
         }
 
