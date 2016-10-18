@@ -89,7 +89,7 @@
       })
       .state('index.voting_station_dashboard/:stationId', {
         url: "/voting_station_dashboard/:stationId",
-        controller: "articlesDashboardController as vm",
+        controller: "votingStationsDashboardController as vm",
         templateUrl: "app/components/articles/dashboard.html",
         data: {
           pageTitle: 'Detalii despre sectia de votare'

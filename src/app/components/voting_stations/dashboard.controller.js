@@ -1,20 +1,21 @@
-(function() {
+(function () {
   'use strict';
-/*eslint angular/di: [2,"array"]*/
+  /*eslint angular/di: [2,"array"]*/
 
-angular.module('romanescuAdmin')
-.controller('articlesDashboardController', ['resourceManager', '$scope', '$rootScope', '$log', 'articleId', 
-    function (resourceManager, $scope, $rootScope, $log, articleId) { 
+  angular.module('romanescuAdmin')
+    .controller('votingStationsDashboardController', ['resourceManager', '$scope', '$rootScope', '$log', 'articleId',
+      function (resourceManager, $scope, $rootScope, $log, articleId) {
         var vm = this,
-            vmLocal = {};
-        
+          vmLocal = {};
+
         vm.data = {}
 
-        $log.info(articleId); 
-        
+        $log.info(articleId);
+
         // TODO:: fetch the list of companies from the server and display here
-        $scope.$on("$destroy", function() {
-            vmLocal = null;
+        $scope.$on("$destroy", function () {
+          vmLocal = null;
         })
-    }]);
+      }
+    ]);
 })();
