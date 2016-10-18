@@ -69,7 +69,7 @@
       .state('index.voting_station_new', {
         url: "/voting_station_new",
         controller: "votingStationsNewController as vm",
-        templateUrl: "app/components/voting_stations/update.html",
+        templateUrl: "app/components/voting_stations/new.html",
         data: {
           pageTitle: 'Adaugare sectie de votare'
         }
@@ -90,7 +90,7 @@
       .state('index.voting_station_dashboard/:stationId', {
         url: "/voting_station_dashboard/:stationId",
         controller: "votingStationsDashboardController as vm",
-        templateUrl: "app/components/articles/dashboard.html",
+        templateUrl: "app/components/voting_stations/dashboard.html",
         data: {
           pageTitle: 'Detalii despre sectia de votare'
         },
