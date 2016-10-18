@@ -3,16 +3,33 @@
   /*eslint angular/di: [2,"array"]*/
 
   angular.module('romanescuAdmin')
-    .controller('votingStationsListController', ['$scope', 'resourceManager', '$log', '$rootScope', 'User',
-      function ($scope, resourceManager, $log, $rootScope, User) {
-        var vm = this,
-          vmLocal = {};
-        vm.data = []
+    .controller('votingStationsListController', ["VotingStations", "$state", "$scope",
+      function (VotingStations, $state, $scope) {
+        var vm = this;
+        vm.delete = delete;
 
+        // vm.items = VotingStations.query();
+
+        vm.items = [{
+          crt: 1,
+          country: "albania",
+          city: 'Tirana',
+          address: "24, Rue Arezki Abri , Hydra, 16035",
+          location: {
+            latitude: 33.23234,
+            longitude: 34.2332
+          }
+        }]
+
+
+
+        function delete() {
+
+        }
 
 
         $scope.$on("$destroy", function () {
-          vmLocal = null;
+          vm.items = [];
         })
       }
     ]);
