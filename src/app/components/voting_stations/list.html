@@ -21,31 +21,44 @@
 
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 	<div class="ibox-content m-b-sm border-bottom">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label class="control-label" for="product_name">Nr Crt</label>
-					<input type="text" id="product_name" name="product_name" placeholder="ex: 354" class="form-control">
+		<form name='votingStationsSearchForm' ng-submit="search()" novalidate>
+			<div class="row">
+				<div class="col-sm-2">
+					<div class="form-group">
+						<label class="control-label">Nr Crt</label>
+						<input type="text" name="product_name" placeholder="ex: 354" class="form-control" ng-model="vm.query.crt">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class=" form-group ">
+						<label class="control-label" for="price ">Stat</label>
+						<input type="text " id="price" name="price" placeholder="ex: Albania" class="form-control" ng-model="vm.query.country">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group ">
+						<label class="control-label " for="quantity ">Localitate</label>
+						<input type="text " id="quantity " name="quantity" placeholder="ex Tirana" class="form-control" ng-model="vm.query.city">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="form-group ">
+						<label class="control-label " for="quantity ">Stare (activ / inactiv)</label>
+						<div class="btn-group">
+							<label class="btn btn-default" ng-model="vm.query.isEnabled" uib-btn-radio="true" uncheckable>Activ</label>
+							<label class="btn btn-default" ng-model="vm.query.isEnabled" uib-btn-radio="false" uncheckable>Inactiv</label>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class=" form-group ">
-					<label class="control-label " for="price ">Stat</label>
-					<input type="text " id="price" name="price" placeholder="ex: Albania" class="form-control ">
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="submit" class="btn btn-primary pull-right" value="Caută" />
+					<!-- <button type="button" class="btn btn-primary pull-right">Caută</button> -->
 				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="form-group ">
-					<label class="control-label " for="quantity ">Localitate</label>
-					<input type="text " id="quantity " name="quantity" placeholder="ex Tirana" class="form-control ">
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<button type="button" class="btn btn-primary pull-right">Caută</button>
-			</div>
-		</div>
+
+		</form>
 
 	</div>
 
@@ -61,8 +74,9 @@
 								<th data-hide="phone ">Stat</th>
 								<th data-hide="all ">Localitate</th>
 								<th data-hide="phone ">Adresa</th>
-								<th data-hide="phone,tablet ">Coordonate</th>
-								<th class="text-right " data-sort-ignore="true ">Action</th>
+								<th data-hide="phone,tablet">Coordonate</th>
+								<th data-hide="phone,tablet">Stare</th>
+								<th class="text-right " data-sort-ignore="true ">Acţiuni</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -82,23 +96,23 @@
 								<td>
 									{{ item.location }}
 								</td>
-								<!-- <td>
-									<span class="label label-primary " ng-if="prod.status.active ">Enabled</span>
-									<span class="label label-warning " ng-if="!prod.status.active ">Disabled</span>
-								</td> -->
+								<td>
+									<span class="label label-primary " ng-if="item.isEnabled">Activ</span>
+									<span class="label label-danger " ng-if="!item.isEnabled">Inactiv</span>
+								</td>
 								<td class="text-right ">
 									<div class="btn-group ">
 										<button class="btn-white btn btn-xs " ng-click="vm.gotoProduct($index) ">Detalii</button>
 										<button class="btn-white btn btn-xs " ng-click="vm.gotoEditProduct($index) ">Modifica</button>
-										<button class="btn-white btn btn-xs " ng-click="vm.delete(item.id)">Sterge</button>
+										<button class="btn-danger btn btn-xs " ng-click="vm.delete(item.id)">Sterge</button>
 									</div>
 								</td>
 							</tr>
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="6 ">
-									<ul class="pagination pull-right "></ul>
+								<td colspan="6">
+									<ul uib-pagination total-items="vm.pagination.totalItems" ng-model="vm.pagination.currentPage" max-size="vm.pagination.maxDisplayedPages" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
 								</td>
 							</tr>
 						</tfoot>
