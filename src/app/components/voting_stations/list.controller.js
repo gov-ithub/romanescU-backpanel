@@ -70,6 +70,15 @@
 
         function remove(id) {
           console.log("removed", id)
+
+          VotingStations.delete({
+              id: id
+            }).$promise
+            .then(function (result) {
+              search()
+            }).catch(function (err) {
+              $log.error(err);
+            });
         }
 
         $scope.$on("$destroy", function () {
