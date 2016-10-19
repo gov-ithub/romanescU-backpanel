@@ -1,18 +1,18 @@
 <div class="row wrapper border-bottom white-bg page-heading">
 	<div class="col-sm-8">
-		<h2>Articles</h2>
+		<h2>Secţii de votare</h2>
 		<ol class="breadcrumb">
 			<li>
 				<a ui-sref="index.main">Home</a>
 			</li>
 			<li class="active">
-				<strong>Articles</strong>
+				<strong>Secţii de votare</strong>
 			</li>
 		</ol>
 	</div>
 	<div class="col-sm-4">
 		<div class="title-action">
-			<a ng-click="$root.goto('index.voting_station_new')" class="btn btn-primary btn-sm"><i class="fa fa-plug"></i> New Article</a>
+			<a ng-click="$root.goto('index.voting_station_new')" class="btn btn-primary btn-sm"><i class="fa fa-plug"></i> Adaugă secţie de votare</a>
 		</div>
 	</div>
 </div>
@@ -21,82 +21,90 @@
 
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 	<div class="ibox-content m-b-sm border-bottom">
-		<div class="row">
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label class="control-label" for="product_name">Product Name</label>
-					<input type="text" id="product_name" name="product_name" value="" placeholder="Product Name" class="form-control">
+		<form name='votingStationsSearchForm' ng-submit="search()" novalidate>
+			<div class="row">
+				<div class="col-sm-2">
+					<div class="form-group">
+						<label class="control-label">Nr Crt</label>
+						<input type="text" name="product_name" placeholder="ex: 354" class="form-control" ng-model="vm.query.crt">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class=" form-group ">
+						<label class="control-label" for="price ">Stat</label>
+						<input type="text " id="price" name="price" placeholder="ex: Albania" class="form-control" ng-model="vm.query.country">
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group ">
+						<label class="control-label " for="quantity ">Localitate</label>
+						<input type="text " id="quantity " name="quantity" placeholder="ex Tirana" class="form-control" ng-model="vm.query.city">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="form-group ">
+						<label class="control-label " for="quantity ">Stare (activ / inactiv)</label>
+						<div class="btn-group">
+							<label class="btn btn-default" ng-model="vm.query.isEnabled" uib-btn-radio="true" uncheckable>Activ</label>
+							<label class="btn btn-default" ng-model="vm.query.isEnabled" uib-btn-radio="false" uncheckable>Inactiv</label>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-2">
-				<div class="form-group">
-					<label class="control-label" for="price">Price</label>
-					<input type="text" id="price" name="price" value="" placeholder="Price" class="form-control">
+			<div class="row">
+				<div class="col-sm-12">
+					<input type="submit" class="btn btn-primary pull-right" value="Caută" />
+					<!-- <button type="button" class="btn btn-primary pull-right">Caută</button> -->
 				</div>
 			</div>
-			<div class="col-sm-2">
-				<div class="form-group">
-					<label class="control-label" for="quantity">Quantity</label>
-					<input type="text" id="quantity" name="quantity" value="" placeholder="Quantity" class="form-control">
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label class="control-label" for="status">Status</label>
-					<select name="status" id="status" class="form-control">
-                        <option value="1" selected>Enabled</option>
-                        <option value="0">Disabled</option>
-                    </select>
-				</div>
-			</div>
-		</div>
+
+		</form>
 
 	</div>
 
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="ibox">
-				<div class="ibox-content">
+	<div class="row ">
+		<div class="col-lg-12 ">
+			<div class="ibox ">
+				<div class="ibox-content ">
 
-					<table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+					<table class="footable table table-stripped toggle-arrow-tiny " data-page-size="15 ">
 						<thead>
 							<tr>
-
-								<th data-toggle="true">Product Name</th>
-								<th data-hide="phone">Model</th>
-								<th data-hide="all">Description</th>
-								<th data-hide="phone">Price</th>
-								<th data-hide="phone,tablet">Quantity</th>
-								<th data-hide="phone">Status</th>
-								<th class="text-right" data-sort-ignore="true">Action</th>
-
+								<th data-toggle="true ">Nr Crt</th>
+								<th data-hide="phone ">Stat</th>
+								<th data-hide="all ">Localitate</th>
+								<th data-hide="phone ">Adresa</th>
+								<th data-hide="phone,tablet">Coordonate</th>
+								<th data-hide="phone,tablet">Stare</th>
+								<th class="text-right " data-sort-ignore="true ">Acţiuni</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="prod in vm.data track by $index">
+							<tr ng-repeat="item in vm.items track by $index ">
 								<td>
-									{{ prod.name }}
+									{{ item.crt }}
 								</td>
 								<td>
-									Model 1
+									{{ item.country }}
 								</td>
 								<td>
-									{{ prod.text.ssdesc }}
+									{{ item.city }}
 								</td>
 								<td>
-									{{ prod.price.gpb.value }}
+									{{ item.address }}
 								</td>
 								<td>
-									{{ prod.stock.quantity }}
+									{{ item.location }}
 								</td>
 								<td>
-									<span class="label label-primary" ng-if="prod.status.active">Enabled</span>
-									<span class="label label-warning" ng-if="!prod.status.active">Disabled</span>
+									<span class="label label-primary " ng-if="item.isEnabled">Activ</span>
+									<span class="label label-danger " ng-if="!item.isEnabled">Inactiv</span>
 								</td>
-								<td class="text-right">
-									<div class="btn-group">
-										<button class="btn-white btn btn-xs" ng-click="vm.gotoProduct($index)">View</button>
-										<button class="btn-white btn btn-xs" ng-click="vm.gotoEditProduct($index)">Edit</button>
+								<td class="text-right ">
+									<div class="btn-group ">
+										<button class="btn-white btn btn-xs " ng-click="vm.gotoProduct($index) ">Detalii</button>
+										<button class="btn-white btn btn-xs " ng-click="vm.gotoEditProduct($index) ">Modifica</button>
+										<button class="btn-danger btn btn-xs " ng-click="vm.delete(item.id)">Sterge</button>
 									</div>
 								</td>
 							</tr>
@@ -104,7 +112,7 @@
 						<tfoot>
 							<tr>
 								<td colspan="6">
-									<ul class="pagination pull-right"></ul>
+									<ul uib-pagination total-items="vm.pagination.totalItems" ng-model="vm.pagination.currentPage" max-size="vm.pagination.maxDisplayedPages" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
 								</td>
 							</tr>
 						</tfoot>
