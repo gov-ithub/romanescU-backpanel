@@ -7,32 +7,37 @@
       function (VotingStations, $state, $scope) {
         var vm = this;
         vm.delete = remove;
+        vm.search = search;
 
-        init()
 
-        function init() {
-          //set default
-          vm.query = {};
-          vm.pagination = {
-            currentPage: 1,
-            itemsPerPage: 7,
-            //   totalItems: 150,
-            maxDisplayedPages: 5
-          };
+        //set default
+        vm.query = {};
+        vm.pagination = {
+          currentPage: 1,
+          itemsPerPage: 7,
+          totalItems: 150,
+          maxDisplayedPages: 5
+        };
+        vm.sortBy = 'crt';
+        vm.sortDirection = "ASC";
 
-          vm.sortBy = 'crt';
-          vm.sortDirection = "ASC";
-          search();
-        }
+        search();
 
         function search() {
-          vm.items = VotingStations.query({
-            q: vm.query, // name = "test search"
-            currentPage: vm.pagination.currentPage, // 1
-            itemsPerPage: vm.pagination.itemsPerPage, // 50
-            sortBy: vm.sortBy, // name
-            sortDirection: vm.sortDirection // 'ASC' sau 'DESC'
-          });
+          VotingStations.query({
+              q: vm.query, // name = "test search"
+              currentPage: vm.pagination.currentPage, // 1
+              itemsPerPage: vm.pagination.itemsPerPage, // 50
+              sortBy: vm.sortBy, // name
+              sortDirection: vm.sortDirection // 'ASC' sau 'DESC'
+            }).$promise
+            .then(function (result) {
+              vm.items = result.list;
+              vm.pagination.totalItems = result.totalItems
+            }).catch(function (err) {
+              console.error(err);
+              vm.error = err;
+            });
 
           //TODO delete when the server is running
           vm.items = [{
@@ -43,7 +48,9 @@
             location: {
               latitude: 33.23234,
               longitude: 34.2332
-            }
+            },
+            isEnabled: true,
+            priority: 100
           }, {
             crt: 2,
             country: "alb3234f3ania",
@@ -53,7 +60,8 @@
               latitude: 33.23234,
               longitude: 34.2332
             },
-            isEnabled: true
+            isEnabled: true,
+            priority: 100
           }, {
             crt: 3,
             country: "asdasdasd",
@@ -63,7 +71,8 @@
               latitude: 33.23234,
               longitude: 34.2332
             },
-            isEnabled: false
+            isEnabled: false,
+            priority: 100
           }]
         }
 
