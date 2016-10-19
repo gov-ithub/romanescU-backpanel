@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-sm-4">
 		<div class="title-action">
-			<a ng-click="$root.goto('index.voting_station_new')" class="btn btn-primary btn-sm"><i class="fa fa-plug"></i> New Article</a>
+			<a ng-click="$root.goto('index.voting_station_new')" class="btn btn-primary btn-sm"><i class="fa fa-plug"></i> Adaugă secţie de votare</a>
 		</div>
 	</div>
 </div>
@@ -25,20 +25,25 @@
 			<div class="col-sm-4">
 				<div class="form-group">
 					<label class="control-label" for="product_name">Nr Crt</label>
-					<input type="text" id="product_name" name="product_name" value="" placeholder="Product Name" class="form-control">
+					<input type="text" id="product_name" name="product_name" placeholder="ex: 354" class="form-control">
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class=" form-group ">
 					<label class="control-label " for="price ">Stat</label>
-					<input type="text " id="price " name="price " value=" " placeholder="Price " class="form-control ">
+					<input type="text " id="price" name="price" placeholder="ex: Albania" class="form-control ">
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="form-group ">
 					<label class="control-label " for="quantity ">Localitate</label>
-					<input type="text " id="quantity " name="quantity " value=" " placeholder="Quantity " class="form-control ">
+					<input type="text " id="quantity " name="quantity" placeholder="ex Tirana" class="form-control ">
 				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="button" class="btn btn-primary pull-right">Caută</button>
 			</div>
 		</div>
 
