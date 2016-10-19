@@ -8,6 +8,7 @@
         var vm = this;
         vm.delete = remove;
         vm.search = search;
+        vm.sort = sort;
 
 
         //set default
@@ -19,7 +20,7 @@
           maxDisplayedPages: 5
         };
         vm.sortBy = 'crt';
-        vm.sortDirection = "ASC";
+        vm.sortAscending = true;
 
         search();
 
@@ -29,7 +30,7 @@
               currentPage: vm.pagination.currentPage, // 1
               itemsPerPage: vm.pagination.itemsPerPage, // 50
               sortBy: vm.sortBy, // name
-              sortDirection: vm.sortDirection // 'ASC' sau 'DESC'
+              sortAscending: vm.sortAscending // 'ASC' sau 'DESC'
             }).$promise
             .then(function (result) {
               vm.items = result.list;
@@ -78,6 +79,12 @@
 
         function remove() {
 
+        }
+
+        function sort(sortBy) {
+          vm.sortBy = sortBy;
+          vm.sortAscending = !vm.sortAscending;
+          search()
         }
 
         $scope.$on("$destroy", function () {
