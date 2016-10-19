@@ -26,11 +26,11 @@
 
         function search() {
           VotingStations.query({
-              q: vm.query, // name = "test search"
+              q: vm.query, // {name: "test search"}
               currentPage: vm.pagination.currentPage, // 1
               itemsPerPage: vm.pagination.itemsPerPage, // 50
-              sortBy: vm.sortBy, // name
-              sortAscending: vm.sortAscending // 'ASC' sau 'DESC'
+              sortBy: vm.sortBy, // 'name'
+              sortAscending: vm.sortAscending // true  OR false
             }).$promise
             .then(function (result) {
               vm.items = result.list;
