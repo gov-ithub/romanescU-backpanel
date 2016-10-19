@@ -104,7 +104,7 @@
 									<div class="btn-group ">
 										<button class="btn-white btn btn-xs " ng-click="vm.gotoProduct($index) ">Detalii</button>
 										<button class="btn-white btn btn-xs " ng-click="vm.gotoEditProduct($index) ">Modifica</button>
-										<button class="btn-danger btn btn-xs " ng-click="vm.delete(item.id)">Sterge</button>
+										<button class="btn-danger btn btn-xs " request-confirmation="Sunteți sigur ca vreți sa ștergeți?" confirmed-action="vm.remove($index)">Sterge</button>
 									</div>
 								</td>
 							</tr>

@@ -3,10 +3,11 @@
   /*eslint angular/di: [2,"array"]*/
 
   angular.module('romanescuAdmin')
-    .controller('votingStationsListController', ["VotingStations", "$state", "$scope",
-      function (VotingStations, $state, $scope) {
+    .controller('votingStationsListController', ["VotingStations", "$state", "$scope", "$log", "$uibModal",
+
+      function (VotingStations, $state, $scope, $log, $uibModal) {
         var vm = this;
-        vm.delete = remove;
+        vm.remove = remove;
 
         init()
 
@@ -67,8 +68,8 @@
           }]
         }
 
-        function remove() {
-
+        function remove(id) {
+          console.log("removed", id)
         }
 
         $scope.$on("$destroy", function () {
