@@ -6,8 +6,11 @@
 
       function (VotingStations, $state, $scope) {
         var vm = this;
-        vm.create = create()
-        vm.data = {}
+        vm.create = create;
+        vm.data = {
+          isEnabled: true,
+          priority: 100
+        };
 
         function create() {
           var votingStations = new VotingStations()
@@ -18,6 +21,7 @@
             .then(function (result) {
               $state.go('index.voting_stations');
             }).catch(function (err) {
+              vm.error = err;
               console.error(err);
             });
         }
