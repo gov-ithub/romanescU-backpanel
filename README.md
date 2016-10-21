@@ -19,8 +19,8 @@ Launch local server
 
 ## :computer: Contributors
 
-| Name | Rol | Email
----- | ------- | ----------------:
+|   | Name | Rol | Email
+---- | ------- | -----------:
 :man:  |  Gabriel  | g@
 
 
