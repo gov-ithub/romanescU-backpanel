@@ -7,7 +7,13 @@ _build a nice back panel and couple it with laravel launcher & API_
 
 Install deps
 
-> npm install && bower install 
+Ai nevoie ca node si npm sa fie deja instalate. Deasemenea gulp si bower trebuie sa fie instalate global (-g flag). 
+
+> npm install -g gulp
+> npm install -g bower
+
+> npm install
+> bower install
 
 Launch local server
 
