@@ -19,12 +19,10 @@ Launch local server
 
 ## :computer: Contributors
 
-|   | Name | Rol | Email
----- | ------- | -----------:
-:man:  |  Gabriel  | g@
-
-
+|    | Name | Rol | 
+----- | ---- | ------- | -------:
+:boy:  |  Gabriel  | Lead | 
 
 ----------
 
-**Made with :heart: by [GovITHub](ithub.gov.ro)**
+**Made with :heart: by [GovITHub](http://ithub.gov.ro)**
