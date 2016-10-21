@@ -12,3 +12,19 @@ Install deps
 Launch local server
 
 > gulp serve
+
+
+------
+------
+
+## :computer: Contributors
+
+| Name | Rol | Email
+---- | ------- | ----------------:
+:man:  |  Gabriel  | g@
+
+
+
+----------
+
+**Made with :heart: by [GovITHub](ithub.gov.ro)**
