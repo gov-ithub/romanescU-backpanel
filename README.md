@@ -15,7 +15,7 @@ Ai nevoie ca node si npm sa fie deja instalate. Deasemenea gulp si bower trebuie
 
 ### Launch local server
 
-> gulp serve
+> `gulp serve`
 
 
 ------
