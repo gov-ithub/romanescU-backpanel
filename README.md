@@ -23,9 +23,11 @@ Ai nevoie ca node si npm sa fie deja instalate. Deasemenea gulp si bower trebuie
 
 ## :computer: Contributors
 
-|    | Name | Rol | 
+|    | Nume | Rol | 
 ----- | ---- | ------- | -------:
-:boy:  |  Gabriel  | Lead | 
+:boy:  |  Gabriel  | PM | 
+:boy:  |  Liviu  | Code:star2: | 
+
 
 ----------
 
