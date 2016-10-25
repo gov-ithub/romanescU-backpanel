@@ -1,7 +1,5 @@
-# RomanescU - Aplicatia Romanului de Pretutindeni [![Build Status](https://travis-ci.org/gov-ithub/romanescU-backend.svg?branch=master)](https://travis-ci.org/gov-ithub/romanescU-backend)
-
-_build a nice back panel and couple it with laravel launcher & API_
-
+# RomanescU [![Build Status](https://travis-ci.org/gov-ithub/romanescU-backend.svg?branch=master)](https://travis-ci.org/gov-ithub/romanescU-backend)
+_Aplicatia Romanului de Pretutindeni_
 
 ----
 ##  How to run
