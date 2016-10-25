@@ -1,4 +1,4 @@
-# RomanescU [![Build Status](https://travis-ci.org/gov-ithub/romanescU-backend.svg?branch=master)](https://travis-ci.org/gov-ithub/romanescU-backend)
+# RomanescU [![Build Status](https://travis-ci.org/gov-ithub/romanescU-backpanel.svg?branch=master)](https://travis-ci.org/gov-ithub/romanescU-backpanel)
 _Aplicatia Romanului de Pretutindeni_
 
 ----
