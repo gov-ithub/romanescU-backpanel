@@ -3,15 +3,19 @@
 _build a nice back panel and couple it with laravel launcher & API_
 
 
-## How to run 
+----
+##  How to run
+Ai nevoie ca node si npm sa fie deja instalate. Deasemenea gulp si bower trebuie sa fie instalate global (-g flag).
 
-Install deps
+    npm install -g gulp
+    npm install -g bower
 
-> npm install && bower install 
+    npm install
+    bower install
 
-Launch local server
+### Launch local server
 
-> gulp serve
+> `gulp serve`
 
 
 ------
@@ -19,9 +23,11 @@ Launch local server
 
 ## :computer: Contributors
 
-|    | Name | Rol | 
+|    | Nume | Rol | 
 ----- | ---- | ------- | -------:
-:boy:  |  Gabriel  | Lead | 
+:boy:  |  Gabriel  | PM | 
+:boy:  |  Liviu  | Code:star2: | 
+
 
 ----------
 
