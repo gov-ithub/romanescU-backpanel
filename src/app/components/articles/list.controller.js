@@ -8,6 +8,8 @@ angular.module('romanescuAdmin')
     var vm = this,
         vmLocal = {};
     vm.data = []
+    
+    vm.test = 'This is a test';
 
 
 

@@ -9,7 +9,7 @@ angular.module('romanescuAdmin')
             vmLocal = {};
         
         vm.data = {}
-
+        vm.test = 'This is a test';
         $log.info(articleId); 
         
         // TODO:: fetch the list of companies from the server and display here
