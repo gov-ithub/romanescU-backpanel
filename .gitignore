@@ -4,3 +4,4 @@ bower_components/
 /.tmp
 .env
 deploy.sh
+/dist
