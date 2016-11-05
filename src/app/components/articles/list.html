@@ -1,4 +1,4 @@
-<div class="row wrapper border-bottom white-bg page-heading">
+<!--<div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-8">
         <h2>Articles</h2>
         <ol class="breadcrumb">
@@ -117,4 +117,127 @@
     </div>
 
 
+</div>-->
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-8">
+        <h2>Articole</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a ui-sref="index.main">Acasă</a>
+            </li>
+            <li class="active">
+                <strong>Articole</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-4">
+        <div class="title-action">
+            <a ng-click="$root.goto('index.articles_new/:articleId',{articleId: 'new'})" class="btn btn-primary btn-sm"><i class="fa fa-plug"></i> Articol nou</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label" for="headline"> Titlu</label>
+                    <input type="text" id="headline" name="headline" value="" placeholder="introduce titlul" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" for="alternativeHeadline"> Titlu alternativ</label>
+                    <input type="text" id="alternativeHeadline" name="alternativeHeadline" value="" placeholder="Titlul alternativ" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label" for="quantity">Descriere</label>
+                    <input type="text" id="quantity" name="quantity" value="" placeholder="Descriere" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label" for="isActiv">Activ</label>
+                    <select name="isActiv" id="idActiv" class="form-control">
+                        <option value="1" selected>Da</option>
+                        <option value="0">Nu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label" for="isActiv">Aprobat</label>
+                    <select name="isActiv" id="idActiv" class="form-control">
+                        <option value="1" selected>Da</option>
+                        <option value="0">Nu</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<div>
+    <div>{{vm.test}}</div>
+</div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                        <thead>
+                        <tr>
+                            <th data-toggle="true">Imagine </th>
+                            <th data-toggle="hide">Activ </th>
+                            <th data-toggle="hide">Aprobat </th>
+                            <th data-toggle="true">Titlu  </th>
+                            <th data-toggle="true">Titlu alternativ </th>
+                            <th data-toggle="true">Data modificarii </th>
+                            <th data-toggle="true">Descriere </th>
+                            
+                        </tr>
+                        </thead>
+                        <div>
+                        {{count}}
+                            
+                        </div>
+                        <tbody>
+                            <tr ng-repeat="article in vm.articles track by $index">
+                                <td class="client-avatar"><img alt="image" ng-src="{{ article.image }}"> </td>
+                                <td><span class="label label-primary" ng-if="article.isActive">Da</span>
+                                    <span class="label label-warning" ng-if="!article.isActive">Nu</span></td>
+                                <td><span class="label label-primary" ng-if="article.isAproved">Da</span>
+                                    <span class="label label-warning" ng-if="!article.isAproved">Nu</span></td>
+                                <td>{{  article.headline  }}</td>
+                                <td>{{  article.alternativeHeadline  }}</td>
+                                <td>{{  article.dateModified }}</td>
+                                <td>{{  article.description }}</td>
+                                
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button class="btn-white btn btn-xs" ng-click="gotoArticle($index)">Vizualizează</button>
+                                        <button class="btn-white btn btn-xs" ng-click="$root.goto('index.articles_update/:articleId',{articleId: 'update'})">Editeză</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <ul ng-change="vm.search()" uib-pagination total-items="vm.pagination.totalItems " ng-model="vm.pagination.currentPage " max-size="vm.pagination.maxDisplayedPages " class="pagination-sm " boundary-links="true " force-ellipses="true "></ul>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+ 
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
