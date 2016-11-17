@@ -1,14 +1,32 @@
-# RomanescU - Aplicatia Romanului de Pretutindeni
+# RomanescU [![Build Status](https://travis-ci.org/gov-ithub/romanescU-backpanel.svg?branch=master)](https://travis-ci.org/gov-ithub/romanescU-backpanel)
+_Aplicatia Romanului de Pretutindeni_
 
-_build a nice back panel and couple it with laravel launcher & API_
+----
+##  How to run
+Ai nevoie ca node si npm sa fie deja instalate. Deasemenea gulp si bower trebuie sa fie instalate global (-g flag).
+
+    npm install -g gulp
+    npm install -g bower
+
+    npm install
+    bower install
+
+### Launch local server
+
+> `gulp serve`
 
 
-## How to run 
+------
+------
 
-Install deps
+## :computer: Contributors
 
-> npm install && bower install 
+|    | Nume | Rol | 
+----- | ---- | ------- | -------:
+:boy:  |  Gabriel  | PM | 
+:boy:  |  Liviu  | Code:star2: | 
 
-Launch local server
 
-> gulp serve
+----------
+
+**Made with :heart: by [GovITHub](http://ithub.gov.ro)**
