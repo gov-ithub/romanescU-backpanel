@@ -28,8 +28,18 @@
       });
     }
 
+    function guid() {
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+    }
+
     function create(resource, resourceType, data) {
-      return call("POST", "indexDocument/" + resource + '/' + resourceType, data);
+      return call("POST", "indexDocument/" + resource + '/' + resourceType + '/' + guid(), data);
     }
 
     function read(resource, resourceType, resourceId) {
