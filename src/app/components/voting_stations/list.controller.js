@@ -38,7 +38,7 @@
               sortAscending: vm.sortAscending // true  OR false
             })
             .then(function (result) {
-              vm.items = result.list;
+              vm.items = result.data;
               vm.pagination.totalItems = result.totalItems
             }).catch(function (err) {
               $log.error(err);

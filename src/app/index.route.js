@@ -82,7 +82,7 @@
           pageTitle: 'Modificare sectie de votare'
         },
         resolve: {
-          articleId: ['$stateParams', function ($stateParams) {
+          stationId: ['$stateParams', function ($stateParams) {
             return $stateParams.stationId;
           }]
         }
@@ -95,7 +95,7 @@
           pageTitle: 'Detalii despre sectia de votare'
         },
         resolve: {
-          articleId: ['$stateParams', function ($stateParams) {
+          stationId: ['$stateParams', function ($stateParams) {
             return $stateParams.stationId;
           }]
         }

@@ -51,7 +51,7 @@
     }
 
     function update(resource, resourceType, resourceId, data) {
-      return call("PATCH", "getDocuments/" + resource + '/' + resourceType + '/' + resourceId, data)
+      return call("PATCH", "updateDocument/" + resource + '/' + resourceType + '/' + resourceId, data)
     }
 
     function remove(resource, resourceType, resourceId) {
