@@ -3,18 +3,33 @@
   /*eslint angular/di: [2,"array"]*/
 
   angular.module('romanescuAdmin')
-    .controller('votingStationsDashboardController', ['resourceManager', '$scope', '$rootScope', '$log', 'articleId',
-      function (resourceManager, $scope, $rootScope, $log, articleId) {
-        var vm = this,
-          vmLocal = {};
+    .controller('votingStationsDashboardController', ['ResourceService', '$log', '$scope', '$state', 'stationId',
+      function (ResourceService, $log, $scope, $state, stationId) {
+        var vm = this;
+        vm.stationId = stationId;
 
-        vm.data = {}
+        // -->Declare: functions
+        ResourceService.read('voting', 'location', stationId)
+          .then(function (result) {
+            vm.data = result.data.source;
+          }).catch(function (err) {
+            vm.error = err;
+            $log.error(err);
+          });
 
-        $log.info(articleId);
+        vm.delete = function (id) {
+          $log.info('deleteing', id)
+          ResourceService.remove('voting', 'location', id)
+            .then(function (result) {
+              $log.info("Success deleted");
+            }).catch(function (err) {
+              vm.error = err;
+              $log.error(err);
+            });
+        };
 
-        // TODO:: fetch the list of companies from the server and display here
         $scope.$on("$destroy", function () {
-          vmLocal = null;
+
         })
       }
     ]);

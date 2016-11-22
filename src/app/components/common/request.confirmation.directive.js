@@ -57,7 +57,6 @@ Example:
           if (confirmedAction) {
             scope.$eval(confirmedAction)
           }
-          scope.$eval()
         }, function () {
           if (canceldAction) {
             scope.$eval(canceldAction)
