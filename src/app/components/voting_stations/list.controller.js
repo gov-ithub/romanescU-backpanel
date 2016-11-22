@@ -5,8 +5,7 @@
   angular.module('romanescuAdmin')
     .controller('votingStationsListController', ["ResourceService", "$state", "$scope", '$log',
       function (ResourceService, $state, $scope, $log) {
-        var vm = this,
-          vmLocal = {};
+        var vm = this;
 
         //-->Init: vars
         vm.query = {};
@@ -21,12 +20,13 @@
 
         // -->Declare: functions
         vm.delete = function (id) {
+          $log.info('deleteing', id)
           ResourceService.remove('voting', 'location', id)
             .then(function (result) {
               $log.info("Success deleted");
             }).catch(function (err) {
               vm.error = err;
-              console.error(err);
+              $log.error(err);
             });
         };
         vm.search = function () {

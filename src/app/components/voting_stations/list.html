@@ -124,9 +124,9 @@
 								</td>
 								<td class="text-right ">
 									<div class="btn-group ">
-										<button class="btn-white btn btn-xs " ng-click="vm.gotoProduct(item.id) ">Detalii</button>
-										<button class="btn-white btn btn-xs " ng-click="vm.gotoEditProduct(item.id) ">Modifica</button>
-										<button class="btn-danger btn btn-xs " ng-click="vm.delete(item.id) ">Sterge</button>
+										<a class="btn-white btn btn-xs" ui-sref="index.voting_station_dashboard({stationId:item.id}) ">Detalii</a>
+										<a class="btn-white btn btn-xs" ui-sref="index.voting_station_update({stationId:item.id}) ">Modifica</a>
+										<button class="btn-danger btn btn-xs" request-confirmation="Sunteti sigur?" confirmed-action="vm.delete(item.id)" canceld-action="vm.cancel()"> Sterge</button>
 									</div>
 								</td>
 							</tr>

@@ -74,7 +74,7 @@
           pageTitle: 'Adaugare sectie de votare'
         }
       })
-      .state('index.voting_station_update/:stationId', {
+      .state('index.voting_station_update', {
         url: "/voting_station_update/:stationId",
         controller: "votingStationsUpdateController as vm",
         templateUrl: "app/components/voting_stations/update.html",
@@ -87,7 +87,7 @@
           }]
         }
       })
-      .state('index.voting_station_dashboard/:stationId', {
+      .state('index.voting_station_dashboard', {
         url: "/voting_station_dashboard/:stationId",
         controller: "votingStationsDashboardController as vm",
         templateUrl: "app/components/voting_stations/dashboard.html",
