@@ -47,7 +47,7 @@
     }
 
     function query(resource, query) {
-      return call("GET", "getDocuments/" + resource + '/_all');
+      return call("GET", "getDocuments/" + resource + '/_all', null, query);
     }
 
     function update(resource, resourceType, resourceId, data) {

@@ -8,6 +8,7 @@
         var vm = this;
         vm.stationId = stationId;
 
+        // -->Declare: functions
         ResourceService.read('voting', 'location', stationId)
           .then(function (result) {
             vm.data = result.data.source;
@@ -15,6 +16,17 @@
             vm.error = err;
             $log.error(err);
           });
+
+        vm.delete = function (id) {
+          $log.info('deleteing', id)
+          ResourceService.remove('voting', 'location', id)
+            .then(function (result) {
+              $log.info("Success deleted");
+            }).catch(function (err) {
+              vm.error = err;
+              $log.error(err);
+            });
+        };
 
         $scope.$on("$destroy", function () {
 
